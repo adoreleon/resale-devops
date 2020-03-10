@@ -45,7 +45,10 @@ INSTALLED_APPS = [
     # Third-apps
 
     # Apps
-    "dashboard"
+    "core",
+    "dashboard",
+    "enviroinment",
+    "update_request"
 ]
 
 MIDDLEWARE = [
