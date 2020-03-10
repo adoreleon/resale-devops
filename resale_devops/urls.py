@@ -22,7 +22,8 @@ from dashboard import views as dash_views
 
 urlpatterns = [
     path('marilu/', admin.site.urls),
-    path('', dash_views.dashboard_view, name="dashboard"),
+    path('', include("dashboard.urls")),
+    path('updaterequest/', include("update_request.urls")),
     path('', include("django.contrib.auth.urls"))
 ]
 
