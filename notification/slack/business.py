@@ -22,22 +22,28 @@ class SlackNotification:
 
     def send_pending_notification(self):
         user = self.update_request.user
+        project = self.update_request.POST.get("project")
+        environment = self.update_request.POST.get("environment")
 
-        message = "O usuário {user} solicitou a atualização do ambiente Y".format(user=user)
+        message = "`Resale DevOps` O usuário {user} solicitou a atualização da plataforma {plataform} ambiente {environment} :sad_parrot: "\
+            .format(user=user, plataform=project, environment=environment)
 
         self.send_notification(message)
 
     def send_finished_notification(self):
         user = self.update_request.user
+        project = self.update_request.POST.get("project")
+        environment = self.update_request.POST.get("environment")
 
-        message = "O usuário {user} atualizou o ambiente Y".format(user=user)
+        message = " `Resale Devops` O usuário {user} atualizou o ambiente {environment} da plataforma {plataform} :party_parrot:" \
+            .format(user=user, plataform=project, environment=environment)
 
         self.send_notification(message)
 
     def send_notification(self, message):
         response = self.client.chat_postMessage(
             channel=self.channel,
-            message=message
+            text=message
         )
 
         return response
