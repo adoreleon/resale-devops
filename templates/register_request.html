@@ -1,0 +1,25 @@
+{% extends "core/base_layout.html" %}
+{% load static %}
+
+{% block body_container %}
+    <div class="container-fluid">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-4 text-gray-800">Registar Pedido</h1>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="card shadow mb-4 col-3">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <table>
+                            {{ form.as_p }}
+                        </table>
+                        <input type="submit" value="Registrar!">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body_container %}

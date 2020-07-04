@@ -13,6 +13,7 @@ class UpdateRequest(BaseModel):
 
     project = models.ForeignKey("enviroinment.Project", on_delete=models.CASCADE)
     branch_name = models.CharField(max_length=128)
+    description = models.TextField(max_length=256)
     tickets = models.ManyToManyField("update_request.BugTrackerTicket")
     status = models.IntegerField(choices=REQUEST_STATUS, default=EnumUpdateRequestStatus.pending)
 
