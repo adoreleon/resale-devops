@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect
+from django.views import View
 
-# Create your views here.
+
+class Notification(View):
+
+    def get(self, request, *args, **kwargs):
+        return HttpResponseRedirect("/")
+

@@ -24,7 +24,8 @@ urlpatterns = [
     path('marilu/', admin.site.urls),
     path('', include("dashboard.urls")),
     path('updaterequest/', include("update_request.urls")),
-    path('', include("django.contrib.auth.urls"))
+    path('', include("django.contrib.auth.urls")),
+    path('notification/', include("notification.urls"))
 ]
 
 if not settings.PROD:
